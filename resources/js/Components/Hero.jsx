@@ -38,19 +38,19 @@ const Hero = () => {
             Smiles served hot — handcrafted flavors with a modern twist.
           </p>
 
-          {/* 🍽️ Buttons */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center md:items-end gap-4 justify-center md:justify-end">
+          {/* 🍽️ Buttons (always side by side) */}
+          <div className="mt-6 flex flex-row flex-wrap items-center gap-4 justify-center md:justify-end w-full max-w-sm">
             <motion.a
               href="#menu"
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center justify-center gap-3 bg-[#28282b] text-white font-bold px-5 py-3 rounded-full shadow-md hover:bg-[#3a3a3e] transition-colors w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-3 bg-[#28282b] text-white font-bold px-5 py-3 rounded-full shadow-md hover:bg-[#3a3a3e] transition-colors text-center"
             >
               View Menu
             </motion.a>
             <motion.a
               href="#about"
               whileHover={{ scale: 1.03 }}
-              className="inline-flex items-center justify-center gap-2 border border-[#28282b] px-4 py-2 rounded-full text-[#28282b] hover:border-[#3a3a3e] transition-colors w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-2 border border-[#28282b] px-4 py-3 rounded-full text-[#28282b] hover:border-[#3a3a3e] transition-colors text-center"
             >
               Learn More
             </motion.a>
