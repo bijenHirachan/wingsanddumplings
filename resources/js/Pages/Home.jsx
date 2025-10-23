@@ -15,7 +15,7 @@ export default function Home({ foodItems, categories }) {
         <About/>
         <Menu foodItems={foodItems} categories={categories}/>
         <Feedback />
-        <OpeningHours />
+        {/* <OpeningHours /> */}
         <Footer/>
     </div>
   );
