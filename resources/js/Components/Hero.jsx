@@ -40,15 +40,16 @@ const Hero = () => {
     </motion.div>
 
     {/* Logo/Image */}
-    <motion.img
-      src="/img/logo.png"
-      alt="Chef's Special"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.4 }}
-      whileHover={{ scale: 1.05 }}
-      className="flex-1 max-w-[180px] sm:max-w-[220px] md:max-w-sm h-auto mx-auto md:mx-0"
-    />
+   <motion.img
+  src="/img/logo.png"
+  alt="Chef's Special"
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.4 }}
+  whileHover={{ scale: 1.05 }}
+  className="flex-1 w-[60%] sm:w-[45%] md:w-[40%] lg:w-[30%] xl:w-[25%] max-w-[350px] h-auto mx-auto md:mx-0"
+/>
+
   </div>
 </section>
 
