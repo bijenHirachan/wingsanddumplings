@@ -140,7 +140,7 @@ const Menu = ({ foodItems, categories }) => {
 
                         {/* ✅ Prevent line break between € and price */}
                         <div className="text-md md:text-lg font-semibold text-gray-200 ml-2 md:ml-4 whitespace-nowrap">
-                          € {item.price.toFixed(2).replace('.', ',')}
+                              € {(item.price / 100).toFixed(2).replace('.',',')}
                         </div>
                       </div>
                     </motion.div>
