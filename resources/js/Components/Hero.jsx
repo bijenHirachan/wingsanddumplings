@@ -12,7 +12,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
             whileHover={{ scale: 1.05 }}
-            className="flex-1 max-w-sm mx-auto md:mx-0"
+            className="flex-1 max-w-xs md:max-w-sm mx-auto md:mx-0"
             />
 
             <motion.div
