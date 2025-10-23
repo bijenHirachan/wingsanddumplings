@@ -20,7 +20,7 @@ const Menu = ({ foodItems, categories }) => {
     <section id="menu" className="py-20 bg-[#28282b] text-center px-6">
 
       <div className="flex gap-8 items-center justify-between max-w-5xl mx-auto mb-12">
-              <motion.h3 className="text-3xl md:text-4xl font-semibold text-gray-100 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>Our Menu</motion.h3>
+              <motion.h3 className="text-3xl md:text-4xl font-semibold text-gray-100 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>Menu</motion.h3>
 
               <div className="relative text-left inline-block w-64">
                 <button
