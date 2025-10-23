@@ -105,11 +105,17 @@ const Menu = ({ foodItems, categories }) => {
                     >
                       {/* Thumbnail image */}
                       <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
-                        <img
+                     {
+                      item.image_url ?    <img
                           src={`/storage/${item.image_url}`}
                           alt={item.name}
                           className="w-full h-full object-cover"
+                        />:   <img
+                          src="/img/noimage.png"
+                          alt={item.name}
+                          className="w-full h-full object-cover"
                         />
+                     }
                       </div>
 
                       {/* Name, description, price */}
