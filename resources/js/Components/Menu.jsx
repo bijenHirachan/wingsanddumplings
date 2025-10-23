@@ -23,9 +23,15 @@ const Menu = ({ foodItems, categories }) => {
 
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6 md:gap-8">
-          {/* Dropdown */}
-          <div className="relative w-64">
+        <div
+          className="
+            flex flex-col-reverse md:flex-row
+            items-center justify-between
+            mb-12 gap-6 md:gap-8
+          "
+        >
+          {/* ✅ Dropdown (comes below on mobile, right on desktop) */}
+          <div className="relative w-full md:w-64">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="w-full px-4 py-2 text-left border border-white/30 shadow-md bg-white text-[#28282B] rounded-2xl hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white"
@@ -68,6 +74,7 @@ const Menu = ({ foodItems, categories }) => {
             </AnimatePresence>
           </div>
 
+          {/* ✅ Title (comes on top on mobile, left on desktop) */}
           <motion.h3
             className="text-3xl md:text-4xl font-semibold text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
@@ -105,17 +112,19 @@ const Menu = ({ foodItems, categories }) => {
                     >
                       {/* Thumbnail image */}
                       <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
-                     {
-                      item.image_url ?    <img
-                          src={`/storage/${item.image_url}`}
-                          alt={item.name}
-                          className="w-full h-full object-cover"
-                        />:   <img
-                          src="/img/noimage.png"
-                          alt={item.name}
-                          className="w-full h-full object-cover"
-                        />
-                     }
+                        {item.image_url ? (
+                          <img
+                            src={`/storage/${item.image_url}`}
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <img
+                            src="/img/noimage.png"
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
                       </div>
 
                       {/* Name, description, price */}
