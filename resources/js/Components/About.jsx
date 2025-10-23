@@ -5,7 +5,7 @@ const About = () => {
   return (
       <section id="about" className="py-20 bg-[#1f1f22] text-center px-6">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-gray-100 mb-4"
+          className="text-3xl md:text-4xl font-bold text-gray-100 mb-6"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
         >

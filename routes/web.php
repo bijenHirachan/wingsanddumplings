@@ -13,12 +13,5 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/new', function () {
-        return Inertia::render('New',[
-        'foodItems' => FoodItem::all(),
-        'categories' => Category::all(),
-    ]);
-});
-
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 

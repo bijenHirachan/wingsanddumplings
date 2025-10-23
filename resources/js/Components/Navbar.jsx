@@ -46,7 +46,7 @@ const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="hover:text-gray-400 font-semibold text-gray-200"
+                className="hover:text-gray-400 px-4 font-semibold text-gray-200"
               >
                 {item.name}
               </a>
