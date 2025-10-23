@@ -61,8 +61,8 @@ const Menu = ({ foodItems, categories }) => {
                     className="w-full h-64 object-cover rounded-t-2xl mb-4"
                   />
                   <h3 className="font-semibold px-4 text-xl mb-1 text-gray-100">{item.name}</h3>
-                  <p className="text-gray-300 px-4 mb-2">Delicious, handcrafted and served hot.</p>
-                  <p className="font-bold pb-4 text-gray-200">€ {item.price.toFixed(2)}</p>
+                  <p className="text-gray-300 px-4 mb-2">{item.description}</p>
+                  <p className="font-bold pb-4 text-gray-200">€ {item.price.toFixed(2).replace('.',',')}</p>
                 </motion.div>
               ))}
             </div>
