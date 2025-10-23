@@ -115,7 +115,7 @@ const Menu = ({ foodItems, categories }) => {
                           <span className="font-semibold text-md md:text-lg">{item.name}</span>
                           <span className="text-gray-300 text-sm md:text-base leading-relaxed">{item.description}</span>
                         </div>
-                        <div className="text-md md:text-lg font-semibold text-gray-200 ml-4 md:ml-6">
+                        <div className="text-md md:text-lg font-semibold text-gray-200 ml-2 md:ml-4">
                           € {item.price.toFixed(2).replace('.', ',')}
                         </div>
                       </div>
