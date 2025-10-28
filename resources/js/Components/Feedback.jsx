@@ -2,17 +2,18 @@ import { motion } from 'framer-motion'
 import { useForm, usePage } from '@inertiajs/react';
 import { route } from 'ziggy-js';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useEffect, useState } from 'react';
 
 const Feedback = () => {
 
-  const { executeRecaptcha } = useGoogleReCaptcha;
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const { data, setData, post, processing, errors, reset } = useForm({
     email: '',
     message: '',
     recaptcha: '',
   }); 
 
-  
+  const [recaptchaReady, setRecaptchaReady] = useState(false);  
 
   const { flash } = usePage().props;
 
@@ -32,6 +33,13 @@ const Feedback = () => {
       onSuccess: () => reset(), // Clear form after success
     });
   };
+
+  useEffect(() => {
+      if(executeRecaptcha){
+        setRecaptchaReady(true);
+      }
+    }, 
+    [executeRecaptcha]);
 
   return (
       <section id="feedback" className="py-20 bg-[#1f1f22] text-center px-6">
@@ -71,13 +79,13 @@ const Feedback = () => {
               className="w-full border border-[#3a3a3e] bg-[#28282b] text-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-gray-500"
             ></textarea>
             {errors.message && <p className="text-red-600 text-left text-sm mt-1">{errors.message}</p>}
-            {errors.recaptcha && <p className="text-red-600 text-left text-sm mt-1">{errors.recaptcha}</p>}
+            {/* {errors.recaptcha && <p className="text-red-600 text-left text-sm mt-1">{errors.recaptcha}</p>} */}
 
             <button
               type="submit"
               className="bg-[#3a3a3e] text-gray-100 font-semibold px-6 py-3 rounded-2xl shadow-md hover:bg-gray-500 transition"
             >
-              {processing ? 'Sending...' : 'Send Feedback'}
+              {recaptchaReady ? 'Send' : 'Loading reCAPTCHA...'}
 
             </button>
           </form>
