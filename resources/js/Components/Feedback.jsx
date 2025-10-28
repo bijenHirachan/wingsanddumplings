@@ -1,21 +1,31 @@
 import { motion } from 'framer-motion'
 import { useForm, usePage } from '@inertiajs/react';
 import { route } from 'ziggy-js';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Feedback = () => {
 
-   const { data, setData, post, processing, errors, reset } = useForm({
+  const { executeRecaptcha } = useGoogleReCaptcha;
+  const { data, setData, post, processing, errors, reset } = useForm({
     email: '',
     message: '',
+    recaptcha: '',
   }); 
 
   
 
   const { flash } = usePage().props;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-          console.log(errors.email);
+    
+    if(!executeRecaptcha){
+      alert('recaptcha not yet ready');
+      return;
+    }
+
+    const token = await executeRecaptcha('contact_form');
+    setData('recaptcha', token);
 
     post(route('feedback.store'), {
       preserveScroll: true,
@@ -61,6 +71,7 @@ const Feedback = () => {
               className="w-full border border-[#3a3a3e] bg-[#28282b] text-gray-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-gray-500"
             ></textarea>
             {errors.message && <p className="text-red-600 text-left text-sm mt-1">{errors.message}</p>}
+            {errors.recaptcha && <p className="text-red-600 text-left text-sm mt-1">{errors.recaptcha}</p>}
 
             <button
               type="submit"
